@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bubsy ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #ffd6e8;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 2.5rem;
+  color: #d1006c;
+  text-shadow: 0 0 10px #ff8ac4;
+}
+
+/* BUTTON */
+#revealBtn {
+  margin: 25px auto;
+  padding: 15px 28px;
+  font-size: 1.2rem;
+  border: none;
+  background: #ff4fa3;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#revealBtn:hover {
+  transform: scale(1.05);
+  background: #ff2e8d;
+}
+
+/* SPARKLES */
+.sparkle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleMove 3s infinite ease-in-out;
+  filter: blur(1px);
+  pointer-events: none;
+}
+@keyframes sparkleMove {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-120px) scale(0); opacity: 0; }
+}
+
+/* SCENE */
+#scene {
+  min-height: 100vh;
+}
+
+/* HEART */
+.heart-container {
+  margin: 40px auto 0;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: 0.6s ease;
+}
+
+.show .heart-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.heart {
+  width: 200px;
+  height: 200px;
+  background: #ff2b7a;
+  position: absolute;
+  inset: 0;
+  clip-path: path("M100 30 C 20 -40, -40 60, 100 180 C 240 60, 180 -40, 100 30 Z");
+  animation: heartbeat 1.5s infinite ease;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* HUG IMAGE */
+.hug {
+  width: 120px;
+  margin: 20px auto;
+  display: block;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.8s ease;
+}
+
+.show .hug {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LOVE NOTE */
+#loveNote {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto 60px;
+  padding: 25px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255,120,200,0.5);
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
+}
+
+.show #loveNote {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MUSIC */
+iframe {
+  margin: 20px auto;
+  display: block;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+.show iframe {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy 24th Birthday, Bubsy ❤️🎉</h1>
+
+<button id="revealBtn">Reveal my heart</button>
+
+<div id="scene">
+
+  <iframe width="300" height="80"
+    src="https://www.youtube.com/embed/HcIVCNTdMJw?autoplay=0&loop=1&playlist=HcIVCNTdMJw"
+    frameborder="0" allowfullscreen>
+  </iframe>
+
+  <div class="heart-container">
+    <div class="heart"></div>
+  </div>
+
+  <img class="hug"
+    src="https://i.etsystatic.com/54697506/r/il/0d55c2/6481369285/il_570xN.6481369285_dn71.jpg"
+    alt="Hug">
+
+  <div id="loveNote"></div>
+</div>
+
+<script>
+// sparkles
+for (let i = 0; i < 40; i++) {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.top = Math.random() * 100 + "vh";
+  s.style.animationDelay = Math.random() * 3 + "s";
+  s.style.animationDuration = 2 + Math.random() * 2 + "s";
+  document.body.appendChild(s);
+}
+
+// message
+const loveMessage = `Wishing My darling husband the best 24th Birthday 💕😘  
+
+My Strong Batman is getting even more musculous and crazy HOT! 🥵🌶️  
+Mera spicy tandoori murgah jeya 🐔😘  
+
+I love you from day 1 and will forever do till the end ❤️ Muahh 💋  
+
+I can't say enough of how grateful Tiddu is for her Mr Perfect ji.  
+You're the BEST and I wouldn't want my love story any different ❤️  
+
+I love waking up to your sexy voice and plumpy puffy lips 🫦  
+I love being your wifey and cooking for my King ji 🤴  
+
+I’m sorry I boil your blood a lot 😭  
+Thank you for being so patient with me when I’m lost like a coconut 🥥🤣  
+
+Kissy kissy love loveeee ❤️  
+Your darling Jassu 🌸  
+
+Happiest birthday, my love ❤️🎉`;
+
+document.getElementById("loveNote").textContent = loveMessage;
+
+// reveal button
+const btn = document.getElementById("revealBtn");
+const scene = document.getElementById("scene");
+
+btn.onclick = () => {
+  scene.classList.toggle("show");
+
+  btn.textContent = scene.classList.contains("show")
+    ? "Hide my heart"
+    : "Reveal my heart";
+
+  if (scene.classList.contains("show")) {
+    scene.scrollIntoView({ behavior: "smooth" });
+  }
+};
+</script>
+
+</body>
+</html>
